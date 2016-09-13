@@ -1,0 +1,37 @@
+#+TITLE: btrfs.rb
+
+* Overview
+
+Wraps btrfs volumes in Ruby Objects.
+
+* Why does this exist?
+
+To simplify working with btrfs volumes in Ruby.
+
+* Installation
+
+#+BEGIN_SRC shell
+  gem install btrfs
+#+END_SRC
+
+* Usage
+
+The following will delete all subvolumes on a btrfs volume:
+
+#+BEGIN_SRC ruby
+  require 'btrfs'
+
+  volume = Btrfs::Volume.new '/path/to/volume'
+
+  volume.subvolumes.each do |subvolume|
+    subvolume.delete
+  end
+#+END_SRC
+
+* License
+
+  ~btrfs.rb~ is available under the [[https://tldrlegal.com/license/mit-license][MIT License]]. See ~LICENSE.txt~ for the full text.
+
+* Contributors
+
+  - [[https://colstrom.github.io/][Chris Olstrom]] | [[mailto:chris@olstrom.com][e-mail]] | [[https://twitter.com/ChrisOlstrom][Twitter]]
