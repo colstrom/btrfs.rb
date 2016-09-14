@@ -11,7 +11,7 @@ module Btrfs
 
     def subvolumes
       `btrfs subvolume list -t #{path}`.lines.drop(2).map do |subvolume|
-        Subvolume.new path, line
+        Subvolume.new path, subvolume
       end
     end
   end
